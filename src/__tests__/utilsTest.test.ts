@@ -20,4 +20,39 @@ describe("testing utils functions", () => {
       username: "postgre",
     });
   });
+
+  test("merging objects", () => {
+    const obj1 = {
+      enviroment: "dev",
+      database: {
+        host: "postgre",
+        port: "3034",
+        username: "postgre",
+      },
+    };
+
+    const obj2 = {
+      enviroment: "prod",
+      database: {
+        host: "postgre",
+        port: "3034",
+        username: "postgre",
+      },
+      cache: {
+        name: "redis",
+      },
+    };
+
+    expect(Object.assign({}, ...[obj1, obj2])).toEqual({
+      cache: {
+        name: "redis",
+      },
+      database: {
+        host: "postgre",
+        port: "3034",
+        username: "postgre",
+      },
+      enviroment: "prod",
+    });
+  });
 });

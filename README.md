@@ -29,3 +29,7 @@ To dockerize solution:
 2. docker run -p 8001:5000 divido
 
 When using docker, change port in the route to 8001
+
+What could do more:
+1. Dynamically importing, falsy jsons will be undefined or null, so would add there more validation.
+2. Remove tests from dist folder (building the project)

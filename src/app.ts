@@ -10,7 +10,9 @@ app.use(express.json());
 app.post("/merge", async (req, res) => {
   try {
     const fileNames = req.body.names; // add a validation
-
+    if (!fileNames || fileNames.length === 0) {
+      res.send("There is no filename");
+    }
     const jsons = await fetchJsons(fileNames);
 
     const mergedObject = Object.assign({}, ...jsons); // merging objects
@@ -24,7 +26,9 @@ app.get("/data/:name/:path", async (req, res) => {
   try {
     const name = req.params["name"]; // add a validation
     const path = req.params["path"];
-
+    if (!name || !path) {
+      res.send("Name of the config file or dotted path is undefined");
+    }
     const fetchedFile = await fetchOneFile(name);
 
     const getProperty =

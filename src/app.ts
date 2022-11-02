@@ -9,7 +9,7 @@ app.use(express.json());
 
 app.post("/merge", async (req, res) => {
   try {
-    const fileNames = req.body.names; // add a validation
+    const fileNames = req.body?.names; // add a validation
     if (!fileNames || fileNames.length === 0) {
       res.send("There is no filename");
     }

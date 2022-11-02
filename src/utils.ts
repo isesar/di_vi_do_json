@@ -19,7 +19,7 @@ export const fetchJsons = async (filenames: string[]) => {
 
 export const fetchOneFile = async (name: string) => {
   try {
-    const body = await import(`../fixtures/${name}.json`);
+    const body = await import(`../../fixtures/${name}.json`);
     return body.default ? body.default : null;
   } catch (err) {
     console.log(err);

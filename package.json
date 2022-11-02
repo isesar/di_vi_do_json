@@ -1,11 +1,10 @@
 {
   "name": "json_divido",
   "version": "1.0.0",
-  "type": "module",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node dist/app.js",
+    "start": "node dist/src/app.js",
     "dev": "nodemon src/app.ts",
     "build": "tsc -p .",
     "test": "jest --watchAll"
